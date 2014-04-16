@@ -1,0 +1,501 @@
+Vibrant I (VEngine) Specification:
+----------------------------------
+
+
+Systems Overview:
+-----------------
+-Math (handles all math related functions and objects such as vectors, matrices, quaternions, lines, planes)
+-Object (handles all basic object management including streaming, identification (name, id, and RTTI), smart pointers,
+	controllers (for time-based changes; "animation"), deep copying, string-tree (or some more readable scene graph format)
+	and possible pre-main initialization/post-main termination)
+-Video (handles all 3d graphics rendering, animation, geometry transformations and processing, and effects)
+-Audio (handles all sound effects, including 3d sound, as well as music)
+-Input (handles all user input, completely versatile to allow for any input event to trigger any function)
+-Network (handles all networking, server/client implementation)
+-Time (handles all timing, including enforcing time based animation, time related statistics, and program profiling)
+-GUI (completely moddable)
+-AI (handles all artificial intelligence)
+-Physics (handles all physics)
+-Application (application (or game) specific logic and data, etc.-include an abstract base classes that define a basic application
+	such as unit, character, item, and level classes)
+
+
+Systems Dependencies/Interactions:
+----------------------------------
+-Math:
+	-Accesses:
+		VObject
+			VVector, VMatrix, VQuaternion, VLine, VPlane all implement the stream operators (VStream).
+	-Accessed by: 
+		Video
+			VTransformation, VCamera, and *various others* (define these as they are implemented/designed) use VMath functions.
+			<to be determined>
+		Physics
+			Uses various math functions for physics calculations.
+	-Implemented by:
+		Video
+			VMesh uses VMatrix, VQuaternion, VVector.
+-Object:
+	-Accesses:
+		n/a
+	-Implemented by: 
+		Math
+			VVector, VMatrix, VQuaternion, VLine, VPlane all implement the stream operators (VStream).
+		Video
+			Many/most classes are derived from VObject.
+			<to be determined>
+		Audio
+			VAudio, V3DSound, VMusic all implement the stream operators (VStream).
+		Application
+			VUnit, VUnitAbility, VUnitStat, VItem, VItemSpecification, VItemDatabase are (in)directly derived from VObject
+			VUnit, VUnitAbility, VUnitStat, VItem, VItemSpecification, VItemDatabase implement the stream operators (VStream).
+		Any classes that implement the stream operators (VStream).
+		Any classes that use smart pointers.
+		Any classes derived from VObject.
+
+-Video:
+	-Accesses:
+		Math
+			VTransformation, VCamera, and *various others* (define these as they are implemented/designed) use VMath functions.
+			VMesh uses VMatrix, VQuaternion, VVector.
+			<to be determined>
+		GUI
+			Gets the GUI (VGUI) (by accessing it through a member pointer) and draws it.
+		Application
+			Gets the world to draw it by traversing its hierarchy.
+	-Implements:
+		Object
+			Many/most classes are derived from VObject.
+			<to be determined>
+	-Implemented by:
+		Application
+			All the effects, controllers, nodes, meshes, materials, etc. used in the VWorld hierarchy come from VVideo.
+-Audio:
+	-Implements:
+		Object
+			VAudio, V3DSound, VMusic all implement the stream operators (VStream).
+	-Accessed by:
+		Application
+			VWorld sends its 3d sound events to V3DSound.
+			VApplication send the music files/reference to VMusic.
+-Input:
+	-Accesses:
+		Video
+		    This happens in Windows (and may on other systems) where the input system must sync with the video system as the
+		    window is created so that the video can run in a separate thread bound to the window, while the input system still
+		    receives the input from the window.
+	-Accessed by:
+		Network
+		    VClient gets the unfired events from the Input system, passes them through the GUI system and then if the events
+		    are not handled by the GUI system, sends them over to the server to be processed by the server's world.
+		
+-Network:
+	(Suggested implementation: have two character buffers for sending and two for receiving. While one is being sent/received, the
+		other buffer is being copied into/copied out of by the world. So what happens is that the world goes through its heirarchy,
+		finds the changes and formats the data that represents those changes and copies that into one of the sending buffers (VServer),
+		while the other sending buffer is being used to send information to the server from last frame. Similarly, one receiving buffer
+		is being filled from the server by VClient, while the other is being used by VWorld, which parses the data and calls the
+		appropriate update functions.)
+	-Accesses:
+		Input/Video/GUI
+		    Pops unfired events off the stack and tries to pass them off to the Video system's GUI(s); if the GUI(s) handle(s) them,
+		    then they are destroyed, but if not, then the events are streamed to the data that is sent to the server where it will
+		    be handled by the world.
+	-Accessed by:
+		Application
+			VWorld calls getXXX() to retrieve the current data received by the client (VClient).
+			VWorld calls setXXX(char* updateString) to set the data to be sent out next by the server (VServer).
+			VApplication can ask for data from certain databases, etc. (i.e to be displayed by the GUI)
+-Time:
+	-Accessed by:
+		Many different systems-this should not matter as the time system consists of a static function to get the time
+		and the VTimedUpdater class which allows for specifying the frequency of the updates for a particular object-
+		thus any system that gets the system time or has frequency-regulated updates uses this.
+-GUI:
+	-Accesses:
+		Video
+			The GUI element that supports multiple viewports (render windows) will have a pointer to the actual VRenderWindow
+			instance associated with it.
+		Application
+			Some elements may call application functions in order to retrieve remote data to display within the GUI (VApplication).
+	-Accessed by:
+		Video
+			Gets the GUI (VGUI) (by accessing it through a member pointer) and draws it.
+		Network/Video
+			Input events are sent to the GUI system (VGUI) from the client through the video system.
+		
+-AI:
+	-Accesses:
+		<to be determined>
+	-Accessed by:
+		<to be determined>
+-Physics:
+	-Accesses:
+		Math
+			Uses various math functions for physics calculations.
+		<to be determined>
+	-Accessed by:
+		<to be determined>
+-Application:
+	-Accesses:
+		Audio
+			VWorld sends its 3d sound events to V3DSound.
+			VApplication send the music files/reference to VMusic.
+		Network
+			VWorld calls getXXX() to retrieve the current data received by the client (VClient).
+			VWorld calls setXXX(char* updateString) to set the data to be sent out next by the server (VServer).
+			VApplication can ask for data from certain databases, etc. (i.e to be displayed by the GUI)
+	-Accessed by:
+		Video
+			Gets the world in order to draw it by traversing its hierarchy.
+		GUI
+			Some elements may call application functions in order to retrieve remote data to display within the GUI (VApplication).
+	-Implements:
+		Object
+			VUnit, VUnitAbility, VUnitStat, VItem, VItemSpecification, VItemDatabase are (in)directly derived from VObject
+			VUnit, VUnitAbility, VUnitStat, VItem, VItemSpecification, VItemDatabase implement the stream operators (VStream).
+		Video
+			All the effects, controllers, nodes, meshes, materials, etc. used in the VWorld hierarchy come from VVideo.
+
+
+Systems In-Depth:
+-----------------
+
+Math:
+-----
+VMath - (encapsulates the math system)
+VVector - (supports vectors)
+VMatrix - (supports matrices)
+VQuaternion - (supports quaternions)
+VLine - (supports lines)
+VPlane - (supports planes)
+
+Container:
+----------
+VArray - (supports simple arrays with index bounds checking)
+
+Object:
+-------
+VObject - (encapsulates the object system)
+VRTTI - (supports run time type identification)
+VStream - (supports writing the scene to a binary file)
+VController - (supports controllers-time based changes)
+VPointable - (supports smart pointers to itself)
+VPointer - (supports smart pointers)
+VNode - (supports the idea of a node within a hierarchy)
+VSingleton - (supports the idea of a class that can only have one instance)
+
+Video:
+------
+VVideo - (encapsulates the video system)
+VVGFLoader - loads *.vgf files (Vibrant Graphics Format)
+V3DNode - (supports the idea of a node within a hierarchy with 3D properties (world/model space, bounding volume, etc.)
+VMesh - (supports the idea of 3d geometry, i.e. a mesh, also supports the idea of a 3d model that has animation, color, texture, etc.
+		associated with a particular mesh)
+VVertex - (supports the concept of a vertex, including its position, normal vector, texture coordinate, and color)
+VVertexArray - (supports the concept of vertex arrays)
+VIndexArray - (supports the concept of index arrays)
+VCuller - (supports the idea of an object that does a preliminary crude culling pass over the scene hierarchy)
+VTransformation - (supports the idea of a transformation that can be applied to an object-translation, rotation, (non)uniform scaling)
+VRenderer - (supports rendering to the screen)
+VRenderWindow - (supports rendering to a specific area of the screen, including the entire screen)
+VScene - (supports the concept of a scene, which is like a part of the overall world, a sub-hierarchy; each render window has a scene associated with it)
+VSceneManager - (supports management of scene objects-performs updates and creates new scenes)
+VCamera - (supports camera operations, including picking operations both for targeting/shooting(FPS), and for selecting units/items(basically every game))
+VParticle - (supports particles)
+VParticleSystem - (supports the idea of a particle system/controller; includes physics simulation)
+VBounds - (for non-GPU culling, collision determination, etc)
+VPolypoint - ? (supports points in a 3d environment)
+VPolyline - ? (supports lines in a 3d environment)
+VTriangleMesh - (supports triangle meshes in a 3d environment)
+VDisplayStyle - (supports the idea of a visual display style for a given render window (i.e. normal, cell-shaded, IR vision, etc.)
+VLight - (supports lighting)
+VTexture - (support multitexturing, mipmapping, projected textures, bumpmapping)
+VBillboard - (supports billboarding)
+VCLODMesh - (supports continuous level of detail)
+VCLODVertex - used for continuous level of detail operations
+VCLODEdge - used for continuous level of detail operations
+VCLODTriangle - used for continuous level of detail operations
+VCLODCollapseRecord - used for continuous level of detail operations (record of each collapse so that they can be reversed to increase detail)
+VBSPNode - ? (supports binary space partitioning trees)
+VPortal - (supports indoor environment sorting, etc.)
+VRegion - used for the portal system (a portal is from one region to another)
+VCurve - ? (used for camera movement?)
+VSurface - ? (used to define a surface-i.e. not with vertices, but with curves)
+VCurveMesh - ? (tesselation of a curve)
+VSurfaceMesh - ? (tesselation of a surface)
+VCLODTerrainVertex - (supports the concept of a terrain vertex within a large mesh that can be enabled and disabled)
+VCLODTerrainBlock - (supports the concept of a terrain block of 3x3 vertices)
+VCLODTerrainPage - (supports the concept of a terrain page)
+VCLODTerrain - (supports the concept of continuous level of detail terrain in game, including page stitching and dynamic replacement of pages)
+VKeyframeController - (supports the idea of doing keyframe animation on an object)
+VMorphController - ? (supports the idea of morphing from one mesh to another-note: the meshes must have the exact same number of vertices)
+VArmatureController - (supports the idea of bones and skin of an object)
+VIKController - ? (supports the idea of using inverse kinematics for animation)
+VEffect - (controls visual effects through shaders-textures, lighting, etc.)
+VShader - (encapsulates the concept of a shader-abstract base class)
+
+Support the following:
+Self-shadowing
+Dynamic generation of bump-maps from high-resolution models for lower resolution models)
+Antialiasing
+Multiple viewports
+Full screen bloom
+Real-time motion blur
+Depth of field
+Global illumination/radiosity
+Procedural textures and models
+
+Audio:
+------
+VAudio - (encapsulates the audio system)
+V3DSound - (supports 3D sounds)
+VMusic - (supports loading, playing, and managing music)
+
+Input:
+------
+VInput - (encapsulates the input system)
+
+Network:
+--------
+VServer - (supports the concept of a server)
+VClient - (supports the concept of a client)
+VNetworkStream - (supports the concept of streaming data over a network)
+
+Time:
+-----
+VTime - (encapsulates the time system)
+VTimedUpdater - (supports the update of an object at a given frequency)
+
+GUI:
+----
+VGUI - (encapsulates the GUI system)
+VScreen - (supports the concept of a full screen GUI layout-i.e. screen one-main menu, screen two-single player menu,
+			screen three-default in game GUI layout)
+VButton - (supports buttons)
+VTextEdit - (supports text edit fields)
+VComboBox - (supports combo boxes)
+VForm - (supports a form, which is basically a window-i.e. diplomacy in RTS, weapons upgrade store-FPS, inventory-RPG, play select-football game)
+VMessageBox - (supports message boxes)
+
+AI:
+---
+VAI - (encapsulates the artificial intelligence system)
+
+Physics:
+--------
+VPhysics - (encapsulates the physics system)
+VCollisionDetection - (encapsulates collision detection between different types of objects (lines, planes, spheres, triangles,
+						oriented/axis-aligned bounding boxes)
+VCollisionGroup - (encapsulates a group of objects in a certain spatial area that can collide (limits collision detection to only those in the group
+					(only those within a certain distance)))
+VCollisionReaction - (encapsulates the reaction to a collision between two types of objects (see VCollisionDetection) and alters the
+						objects' directions, accelerations, velocities, etc.)
+VDESolver - ? (solves ordinary differential equations, base class for the following three classes)
+VDEEulerSolver - ? (solves ordinary differential equations using Euler's method)
+VDEMidpointSolver - ? (solves ordinary differential equations using the midpoint method)
+VDERungeKuttaSolver - ? (solves ordinary differential equations using the Runge-Kutta fourth order method)
+VMassSpringCurve - ? (encapsulates the concept of mass spring curves and their properties)
+VMassSpringSurface - ? (encapsulates the concept of mass spring curves and their properties-i.e. cloth, water)
+VMassSpringVolume - ? (encapsulates the concept of mass spring volumes and their properties-i.e. gelatinous blob)
+VRigidBody - ? (encapsulates the concept of a rigid body mass-used for stuff that cannot be deformed in any way)
+VDeformableBody - ? (encapsulates the concept of a deformable body mass-used for stuff that can be deformed in
+						some manner-i.e. rag-doll physics, building destruction)
+
+Application:
+------------
+VApplication - (encapsulates the application system-allow for fullscreen/windowed use)
+VUnit - (supports the concept of a unit or character within a game, this supports RPG/FPS/Sports player characters,
+			RPG/FPS NPCs, RTS units, and even vehicles for a Racing game)
+VUnitAbility - (supports the concept of a unit's ability-i.e. Die:Change HP->0, Destroy Character; Attack:Change Opponent's HP-=6/second;
+					Super Cool Attack:Instantiate a Fireball and send it to Opponent, If it hits, Opponent's HP-=75)
+VUnitStat - (supports the concept of a unit's statistic-i.e. HP:200)
+VItem - (supports the concept of an instance of an item)
+VItemSpecification - (supports the concept of the definition of what an item is)
+VItemDatabase - (supports the concept of a global database of all item types)
+VMap - (supports the concept of a map that contains terrain, natural objects (rocks, trees, plants), animals, non-natural objects (houses, cars),
+		and level information such as quests, non-player characters, etc.)
+VVMFLoader - loads *.vmf files (Vibrant Map Format)
+VSavedGame - (supports the concept of a saved game)
+VVSGLoader - loads *.vsg files (Vibrant Saved Game)
+VLog - (supports a logging system for program information, warnings, and errors)
+VConfig - (supports an extensible configuration file i/o system)
+VWorld- (supports the concept of a world (which is viewed through various scenes (VScene) that are managed by VSceneManager)
+        -this is what the player/user is immersed in. This manages things such as what should happen if two objects collide
+        -i.e. fire a 3d sound event, fire a damage event to a certain unit, enter victory/defeat game state, etc.)
+
+Exceptions:
+-----------
+VNullPointerException
+VIndexOutOfBoundsException
+VIllegalArgumentException
+
+
+Tools:
+------
+VConsole - used to edit variables or execute commands in-game (i.e. "/destroy objectOne")
+VSceneGraphViewer - loads a streamed scene graph file and displays it in a human readable tree view structure
+VMapEditor - used to edit Vibrant Map Format files, which are used to store areas/levels in a game
+VUnitEditor - used to edit VUnit objects, including VUnitStat and VUnitAbility objects
+VItemEditor - used to edit VItemSpecification objects
+VVGFEditor - used to edit Vibrant Graphics Format files, which are used to store 3D graphics models
+VInterfaceEditor - used to edit game interfaces and view VGUI themes
+Vibrant Editor - this should integrate/contain all of the above tools as well as a "Test/Run" feature that runs the actual game
+					in a separate window and syncs all data to the editor (so adding an object to a map or a new item to the item database
+					would automatically transfer to the "in-game" window.)
+
+
+Consider:
+---------
+VObject - adding Static and Dynamic Typecasting
+
+Completion Status:
+------------------
+
+DD - Design is Done
+CD - Coding is Done
+
+Math:
+-----
+VMath - 
+VVector - 
+VMatrix - 
+VQuaternion - 
+VLine - 
+VPlane - 
+
+Container:
+----------
+VArray - DD CD
+
+Object:
+-------
+VObject - DD CD
+VRTTI - DD CD
+VStream - DD 
+VController - DD CD
+VPointable - DD CD
+VPointer - DD CD
+VNode - DD CD
+VSingleton - DD CD
+
+Video:
+------
+VVideo - DD
+VVGFLoader - DD
+V3DNode - DD
+VMesh - DD
+VVertex - DD
+VVertexArray - DD
+VIndexArray - DD
+VCuller - 
+VTransformation - 
+VRenderer - DD
+VRenderWindow - DD
+VScene - DD
+VSceneManager - DD
+VCamera - 
+VParticle - 
+VParticleSystem - 
+VBounds - 
+VPolypoint - 
+VPolyline - 
+VTriangleMesh - 
+VDisplayStyle - 
+VLight - 
+VTexture - 
+VBillboard - 
+VCLODMesh - 
+VCLODVertex - 
+VCLODEdge - 
+VCLODTriangle -
+VCLODCollapseRecord - 
+VBSPNode - 
+VPortal - 
+VRegion - 
+VCurve - 
+VSurface - 
+VCurveMesh - 
+VSurfaceMesh - 
+VCLODTerrainVertex - 
+VCLODTerrainBlock - 
+VCLODTerrainPage - 
+VCLODTerrain - 
+VKeyframeController - 
+VMorphController - 
+VArmatureController - 
+VIKController - 
+VEffect - 
+VShader - 
+
+Audio:
+------
+VAudio - 
+V3DSound - 
+VMusic - 
+
+Input:
+------
+VInput - DD
+
+Network:
+--------
+VServer - DD
+VNetworkStream - DD
+VClient - DD
+
+Time:
+-----
+VTime - DD CD
+
+GUI:
+----
+VGUI - 
+VScreen - 
+VButton - 
+VTextEdit - 
+VComboBox - 
+VForm - 
+VMessageBox - 
+
+AI:
+---
+VAI - 
+
+Physics:
+--------
+VPhysics - 
+VCollisionDetection - 
+VCollisionGroup - 
+VCollisionReaction - 
+VDESolver - 
+VDEEulerSolver -
+VDEMidpointSolver - 
+VDERungeKuttaSolver - 
+VMassSpringCurve - 
+VMassSpringSurface - 
+VMassSpringVolume -
+VRigidBody - 
+VDeformableBody - 
+
+Application:
+------------
+VApplication - 
+VUnit - 
+VUnitAbility - 
+VUnitStat - 
+VItem - 
+VItemSpecification - 
+VItemDatabase - 
+VMap - 
+VVMFLoader - 
+VSavedGame - 
+VVSGLoader - 
+VLog - DD CD
+VConfig - DD CD
+
+Exceptions:
+-----------
+VNullPointerException - 
+VIndexOutOfBoundsException - 
+VIllegalArgumentException - 

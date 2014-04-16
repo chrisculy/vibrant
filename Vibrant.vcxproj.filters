@@ -1,0 +1,707 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="AI">
+      <UniqueIdentifier>{492b72fa-0fd1-4049-9c03-751734268601}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audio">
+      <UniqueIdentifier>{1f4be026-e9c6-4f75-8c48-1d08cb4911b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{445975e6-2a19-4216-9bfb-1908a70c0d87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Math">
+      <UniqueIdentifier>{169e7f16-1249-48e5-bec4-4715e352c229}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Container">
+      <UniqueIdentifier>{02588e93-0fc8-472e-acbf-9efa0c53c312}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Time">
+      <UniqueIdentifier>{daa9bfb6-359a-480c-9b97-3b695e847bc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Object">
+      <UniqueIdentifier>{9771e874-dd87-4fbf-af80-2a0264d5d5eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Stream">
+      <UniqueIdentifier>{f52a3c40-e3de-4d18-a2ef-ac64f11bf231}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Interaction">
+      <UniqueIdentifier>{18d69553-d3c1-4c8d-a45d-4a051301baf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Thread">
+      <UniqueIdentifier>{c477e03d-73d7-4f49-9d6d-a60304652d0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics">
+      <UniqueIdentifier>{a140361e-671b-4531-8553-9b2e1f5ef18b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Video">
+      <UniqueIdentifier>{ff2892ac-1abb-49a4-88ba-c0f3954eb254}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{1c605f5d-8c2e-4e60-96b2-d5dc3f019e5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{78e096a6-6290-43d0-b657-7e73fca1ef89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Windows">
+      <UniqueIdentifier>{0c03d441-1269-4247-b7a0-5ee9b9946d3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Linux">
+      <UniqueIdentifier>{4391b412-08e1-47db-afca-d880352dcb9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Mac">
+      <UniqueIdentifier>{3bb2468d-d947-4db9-88eb-3f471f02519e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Generic">
+      <UniqueIdentifier>{c96ceb02-fa79-4846-a654-d778329e58a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI">
+      <UniqueIdentifier>{eb20468f-6100-4509-8bfe-885cfa835f18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{26a6477d-47bb-4583-a9cb-0a0489bbe307}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Animation">
+      <UniqueIdentifier>{aecdfb8c-5fcd-4c94-ba5a-43beabd97662}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Vibrant\AI\vai.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Audio\vaudio.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Math\vmath.cpp">
+      <Filter>Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Math\vmatrix.cpp">
+      <Filter>Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Math\vquaternion.cpp">
+      <Filter>Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Math\vtransform.cpp">
+      <Filter>Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Math\vvector.cpp">
+      <Filter>Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Container\vstring.cpp">
+      <Filter>Core\Container</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Time\vtime.cpp">
+      <Filter>Core\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Time\vtimedupdater.cpp">
+      <Filter>Core\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Object\vcontroller.cpp">
+      <Filter>Core\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Object\vnode.cpp">
+      <Filter>Core\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Object\vobject.cpp">
+      <Filter>Core\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Object\vpointable.cpp">
+      <Filter>Core\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Object\vrtti.cpp">
+      <Filter>Core\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Object\vupdatable.cpp">
+      <Filter>Core\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Stream\vfilestream.cpp">
+      <Filter>Core\Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Stream\vgfloader.cpp">
+      <Filter>Core\Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Stream\vreader.cpp">
+      <Filter>Core\Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Stream\vstream.cpp">
+      <Filter>Core\Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Stream\vtextstream.cpp">
+      <Filter>Core\Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Stream\vwriter.cpp">
+      <Filter>Core\Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Stream\vxmlwriter.cpp">
+      <Filter>Core\Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Interaction\vinput.cpp">
+      <Filter>Core\Interaction</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Interaction\vinputmodifier.cpp">
+      <Filter>Core\Interaction</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Interaction\vinputsystem.cpp">
+      <Filter>Core\Interaction</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Thread\venginethread.cpp">
+      <Filter>Core\Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Thread\vmutex.cpp">
+      <Filter>Core\Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Core\Thread\vthread.cpp">
+      <Filter>Core\Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Physics\vphysics.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\varmaturecontroller.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vboundingvolume.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vcamera.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vclodmesh.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vcolor.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vculler.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vdisplaystyle.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\veffect.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vindexbuffer.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vlight.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vmesh.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vparticlesystem.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vrenderer.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vrenderwindow.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vscene.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vscenemanager.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vscenenode.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vtexture.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vtexturecoord.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vtextureeffect.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vvertex.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vvertexbuffer.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Video\vvideo.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Game\vunit.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Game\vunitability.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Game\vunitstat.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\System\vapplication.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\System\vcodemodule.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\System\vconfig.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\System\venginesystem.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\System\vexception.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\System\vfile.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\System\vlog.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\System\vprecompiled.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\System\vsystemmanager.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\System\Windows\vwindowsapplication.cpp">
+      <Filter>System\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\System\Windows\vwindowsaudio.cpp">
+      <Filter>System\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\System\Windows\vwindowsclient.cpp">
+      <Filter>System\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\System\Windows\vwindowscodemodule.cpp">
+      <Filter>System\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\System\Windows\vwindowsinput.cpp">
+      <Filter>System\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\System\Windows\vwindowsmutex.cpp">
+      <Filter>System\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\System\Windows\vwindowsserver.cpp">
+      <Filter>System\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\System\Windows\vwindowsthread.cpp">
+      <Filter>System\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\System\Windows\vwindowstime.cpp">
+      <Filter>System\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\System\Windows\vwindowsvideo.cpp">
+      <Filter>System\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\GUI\vgui.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Network\vclient.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Network\vnetworkendpoint.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Network\vnetworklayer.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Network\vnetworkstream.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Network\vserver.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Network\vsocket.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Animation\vanimation.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Animation\vanimationdata.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Animation\vanimationsession.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Animation\vkeyframeanimationdata.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\Animation\vsimpleanimationdata.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Vibrant\AI\vai.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Audio\vaudio.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Math\vmath.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Math\vmatrix.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Math\vquaternion.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Math\vtransform.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Math\vvector.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Container\varray.h">
+      <Filter>Core\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Container\vhashtable.h">
+      <Filter>Core\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Container\vlinkedlist.h">
+      <Filter>Core\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Container\vqueue.h">
+      <Filter>Core\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Container\vstack.h">
+      <Filter>Core\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Container\vstring.h">
+      <Filter>Core\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Time\vtime.h">
+      <Filter>Core\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Time\vtimedupdater.h">
+      <Filter>Core\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Object\vcontroller.h">
+      <Filter>Core\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Object\vnode.h">
+      <Filter>Core\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Object\vobject.h">
+      <Filter>Core\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Object\vpointable.h">
+      <Filter>Core\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Object\vpointer.h">
+      <Filter>Core\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Object\vrtti.h">
+      <Filter>Core\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Object\vsingleton.h">
+      <Filter>Core\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Object\vupdatable.h">
+      <Filter>Core\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Stream\vfilestream.h">
+      <Filter>Core\Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Stream\vgfloader.h">
+      <Filter>Core\Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Stream\vreader.h">
+      <Filter>Core\Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Stream\vserializable.h">
+      <Filter>Core\Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Stream\vstream.h">
+      <Filter>Core\Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Stream\vtextstream.h">
+      <Filter>Core\Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Stream\vwriter.h">
+      <Filter>Core\Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Stream\vxmlwriter.h">
+      <Filter>Core\Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Interaction\vevent.h">
+      <Filter>Core\Interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Interaction\veventsystem.h">
+      <Filter>Core\Interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Interaction\vinput.h">
+      <Filter>Core\Interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Interaction\vinputevent.h">
+      <Filter>Core\Interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Interaction\vinputmodifier.h">
+      <Filter>Core\Interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Interaction\vinputsystem.h">
+      <Filter>Core\Interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Thread\vasynchronous.h">
+      <Filter>Core\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Thread\venginethread.h">
+      <Filter>Core\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Thread\vmutex.h">
+      <Filter>Core\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Thread\vmutexlock.h">
+      <Filter>Core\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Core\Thread\vthread.h">
+      <Filter>Core\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Physics\vphysics.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\varmaturecontroller.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vboundingvolume.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vcamera.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vclodmesh.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vcolor.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vculler.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vdisplaystyle.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\veffect.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vindexbuffer.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vlight.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vmesh.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vparticlesystem.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vrenderer.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vrenderwindow.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vscene.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vscenemanager.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vscenenode.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vtexture.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vtexturecoord.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vtextureeffect.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vvertex.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vvertexbuffer.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Video\vvideo.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Game\vitemspecification.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Game\vunit.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Game\vunitability.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Game\vunitstat.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Game\vunitstatcontrol.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\index.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\vapplication.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\vcodemodule.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\vconfig.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\vconvert.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\vdll.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\venginesystem.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\vexception.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\vfile.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\vlog.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\vprecompiled.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\vsystem.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\vsystemmanager.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowsapplication.h">
+      <Filter>System\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowsaudio.h">
+      <Filter>System\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowsclient.h">
+      <Filter>System\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowscodemodule.h">
+      <Filter>System\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowsconvert.h">
+      <Filter>System\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowsexception.h">
+      <Filter>System\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowsinput.h">
+      <Filter>System\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowsmutex.h">
+      <Filter>System\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowsserver.h">
+      <Filter>System\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowsthread.h">
+      <Filter>System\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowstime.h">
+      <Filter>System\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowsvideo.h">
+      <Filter>System\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\Generic\vgenericcodemodule.h">
+      <Filter>System\Generic</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\Generic\vgenericmutex.h">
+      <Filter>System\Generic</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\Generic\vgenericthread.h">
+      <Filter>System\Generic</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\System\Generic\vgenerictime.h">
+      <Filter>System\Generic</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\GUI\vgui.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Network\vclient.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Network\vnetworkendpoint.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Network\vnetworklayer.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Network\vnetworkstream.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Network\vserver.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Network\vsocket.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Network\vsockettype.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Animation\vanimatable.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Animation\vanimation.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Animation\vanimationdata.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Animation\vanimationmodes.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Animation\vanimationsession.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Animation\vanimationtrack.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Animation\vkeyframeanimationdata.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\Animation\vsimpleanimationdata.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\Vibrant\Core\Stream\vgf_export_script.py">
+      <Filter>Core\Stream</Filter>
+    </None>
+    <None Include="Source\Vibrant\Core\Interaction\vevent.inl">
+      <Filter>Core\Interaction</Filter>
+    </None>
+    <None Include="Source\Vibrant\Core\Interaction\veventsystem.inl">
+      <Filter>Core\Interaction</Filter>
+    </None>
+    <None Include="Source\Vibrant\Core\Thread\vmutexlock.inl">
+      <Filter>Core\Thread</Filter>
+    </None>
+    <None Include="Source\Vibrant\Core\Thread\vthread.inl">
+      <Filter>Core\Thread</Filter>
+    </None>
+    <None Include="Source\Vibrant\Network\vnetworklayer.inl">
+      <Filter>Network</Filter>
+    </None>
+    <None Include="Source\Vibrant\Animation\vanimationdata.inl">
+      <Filter>Animation</Filter>
+    </None>
+    <None Include="Source\Vibrant\Animation\vanimationtrack.inl">
+      <Filter>Animation</Filter>
+    </None>
+  </ItemGroup>
+</Project>

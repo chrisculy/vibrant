@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Libraries">
+      <UniqueIdentifier>{143e0308-d386-4f1f-8ae1-03e4fba99fbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Container">
+      <UniqueIdentifier>{164192c8-7785-46a1-9b22-768534b21bad}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Vibrant\ut_container.cpp">
+      <Filter>Container</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\ut_varray.cpp">
+      <Filter>Container</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\ut_vhashtable.cpp">
+      <Filter>Container</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\ut_vlinkedlist.cpp">
+      <Filter>Container</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\ut_vqueue.cpp">
+      <Filter>Container</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\ut_vstack.cpp">
+      <Filter>Container</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\ut_vstring.cpp">
+      <Filter>Container</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\ut_main.cpp" />
+    <ClCompile Include="Source\Vibrant\vprecompiled.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Vibrant\ut_container.h">
+      <Filter>Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\ut_varray.h">
+      <Filter>Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\ut_vhashtable.h">
+      <Filter>Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\ut_vlinkedlist.h">
+      <Filter>Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\ut_vqueue.h">
+      <Filter>Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\ut_vstack.h">
+      <Filter>Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\ut_vstring.h">
+      <Filter>Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vibrant\ut_runner.h" />
+    <ClInclude Include="Source\Vibrant\vprecompiled.h" />
+  </ItemGroup>
+</Project>

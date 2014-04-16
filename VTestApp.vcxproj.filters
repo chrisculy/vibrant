@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Demos">
+      <UniqueIdentifier>{c681f892-e453-4373-86b8-3b9662e95702}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\VTestApp\vanimationdemo.cpp">
+      <Filter>Demos</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\VTestApp\vgfloaderdemo.cpp">
+      <Filter>Demos</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\VTestApp\vinputdemo.cpp">
+      <Filter>Demos</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\VTestApp\main.cpp" />
+    <ClCompile Include="Source\VTestApp\winmain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\VTestApp\vanimationdemo.h">
+      <Filter>Demos</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\VTestApp\vgfloaderdemo.h">
+      <Filter>Demos</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\VTestApp\vinputdemo.h">
+      <Filter>Demos</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

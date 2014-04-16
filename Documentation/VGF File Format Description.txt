@@ -1,0 +1,72 @@
+VGF File Format Description (V Graphics File)
+
+->Start of File
+
+->File Header
+	-5 int struct
+		-The VGF File Format Identifier (0x9999)
+		-the number of textures
+		-the number of frames per second
+		-number of uv images
+		-number of armatures
+
+->UV Image Info
+	-2 int struct
+		-length of the uv image name
+		-length of the uv image filename
+	-1 string ( 255 characters )
+		-uv image name
+	-1 string ( 255 characters )
+		-uv image filename
+		
+->Mesh Data
+	-4 int struct
+		-boolean-whether UV textures are used or not
+		-number of vertices	
+		-number of indices
+		-number of faces
+	->Vertex Data
+		-3 float struct
+			-vertex's coordinates (x,y,z)
+		-3 float struct
+			-vertex's normal vector
+	->Face Data
+		-2 int struct
+			-number of vertices
+			-uv image index
+		->Vertex Data
+			-1 int struct
+				-vertex's index in the vertex array
+			-2 float struct
+				-vertex's uv coordinates (retrieved from the face)
+			-1 int struct
+				-number of bones that influence this vertex
+			->Vertex Bone Influence Data
+				-1 int struct
+					-the length of the name of the bone
+				-1 string struct
+					-the name of the bone
+				-1 float struct
+					-the weight of the bone
+	->Armature Data
+		-2 int struct
+			-number of bones
+		    -number of action strips
+		->Action Strip Data
+		    -3 int struct
+		        -start frame for the action
+		        -end frame for the action
+		        -number of keyframes
+            ->Keyframe Data
+                -1 int struct
+                    -the frame number for the keyframe
+		->Bone Data
+			-1 int struct
+				-the length of the name of the bone
+			-1 string struct
+				-the name of the bone
+			->Keyframe Data
+				-16 float struct
+					-the 4x4 affine transformation matrix for the bone
+
+->End of File

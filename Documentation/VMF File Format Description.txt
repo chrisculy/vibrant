@@ -1,0 +1,31 @@
+VMF File Format Description (V Map File)
+
+->Start of File
+	-VMF File Format Identifier (0x9494)
+	-Version of the game this has been updated for [in the format x.xx] (i.e. 1.00)
+	
+->Header
+	-width of the map
+	-height of the map
+	-key file location (this is the path to the file that contains the key or legend to the numbers used in the map file)
+	-number of layers (this is the 2 + the number of terrain layers. There is always an elevation and an object/trigger layer, but there can
+						be multiple terrain layers.)
+	
+->Elevation*
+	-a long storing the height (in 3d units/feet)
+		
+->Terrain*
+	-an int storing the terrain texture type (this type is interpreted when loaded or saved using the key stored in the key file)
+	-a float storing the blending value (from 0.00 to 1.00) [this is used to blend with lower layers]
+
+->Object/Trigger
+	-number of objects
+		->Object Data
+			-an int storing the object type (this type is interpreted when loaded or saved using the key stored in the key file)
+			-position vector (x, y, z)
+			-rotation vector (x, y, z)
+			-an int storing the trigger type (this type is interpreted when loaded or saved using the key stored in the key file)
+
+->End of File
+
+*Note: These layers store data starting at the bottom-left corner (from top view), which will be the origin (0,0).

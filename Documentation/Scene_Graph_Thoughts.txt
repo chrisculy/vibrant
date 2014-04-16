@@ -1,0 +1,4 @@
+-Update all nodes in the Scene.
+-Using an Octree (or OctreeCuller, perhaps?), perform needed culling.
+-Construct a list of visible nodes.
+-Sort according to render states and render.

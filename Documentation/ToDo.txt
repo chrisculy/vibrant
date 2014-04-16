@@ -1,0 +1,42 @@
+-General:
+    -Font support.
+    -Shader based video system.
+    -Resource manager that allows loading based on a name/path.
+    -For Object::GetNextID (), add a static (FIFO) queue that holds available IDs (i.e. of now-destroyed VObjects) and returns an ID from that queue
+    (and remove it from the queue) if the queue is not empty and returns nextID++ otherwise.
+    -Put exceptions in their own *.h files (maybe?).
+    -Review the need for VObject to support names (this should probably be moved down to base classes that use it and then Object would only support unique 
+    ID numbers).
+    -Get the thread priority right (it's messed up).
+    -Controller needs to be refactored entirely into the animation system (described in another email).
+    
+    
+    -Optimize the matrix and quaternion animation engine to use Math functions that take float arrays and then don't create any intermediate objects.
+    -Implement Animatable on classes that should have it (such as AnimationTrack for the blend weight, Transform for almost everything, etc.).
+    -Implement support for just "to" and just "by."
+    -Possibly get rid of Simple and Keyframe and just have AnimationData which supports all the same functionality (maybe...).
+    -Add validation (and exceptions) throughout the animation system (especially for KeyframeAnimationData).
+    
+    
+-Streaming:
+    -Implement BinaryWriter, BinaryReader, and XMLReader (and possibly upgrade XMLWriter to include full XML support eventually).
+    -Implement the stream read and write functions for FileStream.
+    -Update VGFLoader to use File or FileStream.
+    -Review RTTI streaming in RTTI.
+    -Change Log and Config to use a File or FileStream and maybe a Writer like a TextWriter or something as well.
+    -Do we need (or are we actually using) ReadException/WriteException(see Serializable.h, Reader.h (and Writer.h))?
+
+-Input:
+    -Fix mouse scrolling (GET_WHEEL_DELTA_WPARAM on line 194 of vwindowsinput.cpp-should return -120 instead of 65416).
+    -Fix the ALT keys.
+    -Fix double clicking.
+    -The event system is solid, but the input system needs to be designed properly (in a scalable, client-server manner).
+
+-Network:
+    -Get the SampleClient and SampleServer apps working with Vibrant compiled as a DLL.
+    -Check for a closed connection (when send or recv returns 0) and behave accordingly.
+    -Socket::Poll should maybe return an int which has the current state OR'd into it (is it possibly to be ready to send/receive/have-an-error at
+    the same time?).
+    -Get the client/server text demo working with Reliable UDP.
+    -Test the asynchronous socket methods.
+    -Design and implement NetworkStream and a packet handling system.

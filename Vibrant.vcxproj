@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug Lib|Win32">
+      <Configuration>Debug Lib</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{79D4B681-1449-4564-8B19-4D7DB8AA4C37}</ProjectGuid>
+    <RootNamespace>Vibrant</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Lib|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Lib|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug Lib|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug Lib|Win32'">$(Configuration)\</IntDir>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PostBuildEventUseInBuild>
+    <CustomBuildAfterTargets Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    </CustomBuildAfterTargets>
+    <CustomBuildAfterTargets Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    </CustomBuildAfterTargets>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\DevIL\include;$(SolutionDir)Source\Vibrant\Video;$(SolutionDir)Source\Vibrant\System\Windows;$(SolutionDir)Source\Vibrant\System\Generic;$(SolutionDir)Source\Vibrant\System;$(SolutionDir)Source\Vibrant\Physics;$(SolutionDir)Source\Vibrant\Network;$(SolutionDir)Source\Vibrant\GUI;$(SolutionDir)Source\Vibrant\Game;$(SolutionDir)Source\Vibrant\Core\Time;$(SolutionDir)Source\Vibrant\Core\Thread;$(SolutionDir)Source\Vibrant\Core\Stream;$(SolutionDir)Source\Vibrant\Core\Object;$(SolutionDir)Source\Vibrant\Core\Math;$(SolutionDir)Source\Vibrant\Core\Interaction;$(SolutionDir)Source\Vibrant\Core\Container;$(SolutionDir)Source\Vibrant\Audio;$(SolutionDir)Source\Vibrant\Animation;$(SolutionDir)Source\Vibrant\AI;$(SolutionDir)Source;$(SolutionDir)Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32; DLL_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>vprecompiled.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>ws2_32.lib;DevIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Libraries\DevIL\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>NotSet</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Message>Copying Vibrant DLL and LIB . . .</Message>
+      <Command>copy $(OutDir)$(TargetName).lib $(SolutionDir)\$(TargetName).lib
+copy $(OutDir)$(TargetName).dll $(SolutionDir)\$(TargetName).dll</Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Message>
+      </Message>
+      <Outputs>
+      </Outputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32; DLL_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>vprecompiled.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>NotSet</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Message>Copying Vibrant DLL and LIB . . .</Message>
+      <Command>copy $(OutDir)$(TargetName).lib $(SolutionDir)\$(TargetName).lib
+copy $(OutDir)$(TargetName).dll $(SolutionDir)\$(TargetName).dll</Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>
+      </Outputs>
+      <Message>
+      </Message>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Lib|Win32'">
+    <CustomBuildStep>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
+      <Outputs>%(Outputs)</Outputs>
+    </CustomBuildStep>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32; null=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>vprecompiled.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <Lib>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+    </Lib>
+    <PostBuildEvent>
+      <Message>Copying Vibrant Library...</Message>
+      <Command>copy "$(TargetPath)" $(SolutionDir)\$(TargetName).lib</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Vibrant\AI\vai.cpp" />
+    <ClCompile Include="Source\Vibrant\Audio\vaudio.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Math\vmath.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Math\vmatrix.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Math\vquaternion.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Math\vtransform.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Math\vvector.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Container\vstring.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Time\vtime.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Time\vtimedupdater.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Object\vcontroller.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Object\vnode.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Object\vobject.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Object\vpointable.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Object\vrtti.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Object\vupdatable.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Stream\vfilestream.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Stream\vgfloader.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Stream\vreader.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Stream\vstream.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Stream\vtextstream.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Stream\vwriter.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Stream\vxmlwriter.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Interaction\vinput.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Interaction\vinputmodifier.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Interaction\vinputsystem.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Thread\venginethread.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Thread\vmutex.cpp" />
+    <ClCompile Include="Source\Vibrant\Core\Thread\vthread.cpp" />
+    <ClCompile Include="Source\Vibrant\Physics\vphysics.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\varmaturecontroller.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vboundingvolume.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vcamera.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vclodmesh.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vcolor.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vculler.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vdisplaystyle.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\veffect.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vindexbuffer.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vlight.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vmesh.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vparticlesystem.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vrenderer.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vrenderwindow.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vscene.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vscenemanager.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vscenenode.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vtexture.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vtexturecoord.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vtextureeffect.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vvertex.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vvertexbuffer.cpp" />
+    <ClCompile Include="Source\Vibrant\Video\vvideo.cpp" />
+    <ClCompile Include="Source\Vibrant\Game\vunit.cpp" />
+    <ClCompile Include="Source\Vibrant\Game\vunitability.cpp" />
+    <ClCompile Include="Source\Vibrant\Game\vunitstat.cpp" />
+    <ClCompile Include="Source\Vibrant\System\vapplication.cpp" />
+    <ClCompile Include="Source\Vibrant\System\vcodemodule.cpp" />
+    <ClCompile Include="Source\Vibrant\System\vconfig.cpp" />
+    <ClCompile Include="Source\Vibrant\System\venginesystem.cpp" />
+    <ClCompile Include="Source\Vibrant\System\vexception.cpp" />
+    <ClCompile Include="Source\Vibrant\System\vfile.cpp" />
+    <ClCompile Include="Source\Vibrant\System\vlog.cpp" />
+    <ClCompile Include="Source\Vibrant\System\vprecompiled.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Source\Vibrant\System\vsystemmanager.cpp" />
+    <ClCompile Include="Source\Vibrant\System\Windows\vwindowsapplication.cpp" />
+    <ClCompile Include="Source\Vibrant\System\Windows\vwindowsaudio.cpp" />
+    <ClCompile Include="Source\Vibrant\System\Windows\vwindowsclient.cpp" />
+    <ClCompile Include="Source\Vibrant\System\Windows\vwindowscodemodule.cpp" />
+    <ClCompile Include="Source\Vibrant\System\Windows\vwindowsinput.cpp" />
+    <ClCompile Include="Source\Vibrant\System\Windows\vwindowsmutex.cpp" />
+    <ClCompile Include="Source\Vibrant\System\Windows\vwindowsserver.cpp" />
+    <ClCompile Include="Source\Vibrant\System\Windows\vwindowsthread.cpp" />
+    <ClCompile Include="Source\Vibrant\System\Windows\vwindowstime.cpp" />
+    <ClCompile Include="Source\Vibrant\System\Windows\vwindowsvideo.cpp" />
+    <ClCompile Include="Source\Vibrant\GUI\vgui.cpp" />
+    <ClCompile Include="Source\Vibrant\Network\vclient.cpp" />
+    <ClCompile Include="Source\Vibrant\Network\vnetworkendpoint.cpp" />
+    <ClCompile Include="Source\Vibrant\Network\vnetworklayer.cpp" />
+    <ClCompile Include="Source\Vibrant\Network\vnetworkstream.cpp" />
+    <ClCompile Include="Source\Vibrant\Network\vserver.cpp" />
+    <ClCompile Include="Source\Vibrant\Network\vsocket.cpp" />
+    <ClCompile Include="Source\Vibrant\Animation\vanimation.cpp" />
+    <ClCompile Include="Source\Vibrant\Animation\vanimationdata.cpp" />
+    <ClCompile Include="Source\Vibrant\Animation\vanimationsession.cpp" />
+    <ClCompile Include="Source\Vibrant\Animation\vkeyframeanimationdata.cpp" />
+    <ClCompile Include="Source\Vibrant\Animation\vsimpleanimationdata.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Vibrant\AI\vai.h" />
+    <ClInclude Include="Source\Vibrant\Audio\vaudio.h" />
+    <ClInclude Include="Source\Vibrant\Core\Math\vmath.h" />
+    <ClInclude Include="Source\Vibrant\Core\Math\vmatrix.h" />
+    <ClInclude Include="Source\Vibrant\Core\Math\vquaternion.h" />
+    <ClInclude Include="Source\Vibrant\Core\Math\vtransform.h" />
+    <ClInclude Include="Source\Vibrant\Core\Math\vvector.h" />
+    <ClInclude Include="Source\Vibrant\Core\Container\varray.h" />
+    <ClInclude Include="Source\Vibrant\Core\Container\vhashtable.h" />
+    <ClInclude Include="Source\Vibrant\Core\Container\vlinkedlist.h" />
+    <ClInclude Include="Source\Vibrant\Core\Container\vqueue.h" />
+    <ClInclude Include="Source\Vibrant\Core\Container\vstack.h" />
+    <ClInclude Include="Source\Vibrant\Core\Container\vstring.h" />
+    <ClInclude Include="Source\Vibrant\Core\Time\vtime.h" />
+    <ClInclude Include="Source\Vibrant\Core\Time\vtimedupdater.h" />
+    <ClInclude Include="Source\Vibrant\Core\Object\vcontroller.h" />
+    <ClInclude Include="Source\Vibrant\Core\Object\vnode.h" />
+    <ClInclude Include="Source\Vibrant\Core\Object\vobject.h" />
+    <ClInclude Include="Source\Vibrant\Core\Object\vpointable.h" />
+    <ClInclude Include="Source\Vibrant\Core\Object\vpointer.h" />
+    <ClInclude Include="Source\Vibrant\Core\Object\vrtti.h" />
+    <ClInclude Include="Source\Vibrant\Core\Object\vsingleton.h" />
+    <ClInclude Include="Source\Vibrant\Core\Object\vupdatable.h" />
+    <ClInclude Include="Source\Vibrant\Core\Stream\vfilestream.h" />
+    <ClInclude Include="Source\Vibrant\Core\Stream\vgfloader.h" />
+    <ClInclude Include="Source\Vibrant\Core\Stream\vreader.h" />
+    <ClInclude Include="Source\Vibrant\Core\Stream\vserializable.h" />
+    <ClInclude Include="Source\Vibrant\Core\Stream\vstream.h" />
+    <ClInclude Include="Source\Vibrant\Core\Stream\vtextstream.h" />
+    <ClInclude Include="Source\Vibrant\Core\Stream\vwriter.h" />
+    <ClInclude Include="Source\Vibrant\Core\Stream\vxmlwriter.h" />
+    <ClInclude Include="Source\Vibrant\Core\Interaction\vevent.h" />
+    <ClInclude Include="Source\Vibrant\Core\Interaction\veventsystem.h" />
+    <ClInclude Include="Source\Vibrant\Core\Interaction\vinput.h" />
+    <ClInclude Include="Source\Vibrant\Core\Interaction\vinputevent.h" />
+    <ClInclude Include="Source\Vibrant\Core\Interaction\vinputmodifier.h" />
+    <ClInclude Include="Source\Vibrant\Core\Interaction\vinputsystem.h" />
+    <ClInclude Include="Source\Vibrant\Core\Thread\vasynchronous.h" />
+    <ClInclude Include="Source\Vibrant\Core\Thread\venginethread.h" />
+    <ClInclude Include="Source\Vibrant\Core\Thread\vmutex.h" />
+    <ClInclude Include="Source\Vibrant\Core\Thread\vmutexlock.h" />
+    <ClInclude Include="Source\Vibrant\Core\Thread\vthread.h" />
+    <ClInclude Include="Source\Vibrant\Physics\vphysics.h" />
+    <ClInclude Include="Source\Vibrant\Video\varmaturecontroller.h" />
+    <ClInclude Include="Source\Vibrant\Video\vboundingvolume.h" />
+    <ClInclude Include="Source\Vibrant\Video\vcamera.h" />
+    <ClInclude Include="Source\Vibrant\Video\vclodmesh.h" />
+    <ClInclude Include="Source\Vibrant\Video\vcolor.h" />
+    <ClInclude Include="Source\Vibrant\Video\vculler.h" />
+    <ClInclude Include="Source\Vibrant\Video\vdisplaystyle.h" />
+    <ClInclude Include="Source\Vibrant\Video\veffect.h" />
+    <ClInclude Include="Source\Vibrant\Video\vindexbuffer.h" />
+    <ClInclude Include="Source\Vibrant\Video\vlight.h" />
+    <ClInclude Include="Source\Vibrant\Video\vmesh.h" />
+    <ClInclude Include="Source\Vibrant\Video\vparticlesystem.h" />
+    <ClInclude Include="Source\Vibrant\Video\vrenderer.h" />
+    <ClInclude Include="Source\Vibrant\Video\vrenderwindow.h" />
+    <ClInclude Include="Source\Vibrant\Video\vscene.h" />
+    <ClInclude Include="Source\Vibrant\Video\vscenemanager.h" />
+    <ClInclude Include="Source\Vibrant\Video\vscenenode.h" />
+    <ClInclude Include="Source\Vibrant\Video\vtexture.h" />
+    <ClInclude Include="Source\Vibrant\Video\vtexturecoord.h" />
+    <ClInclude Include="Source\Vibrant\Video\vtextureeffect.h" />
+    <ClInclude Include="Source\Vibrant\Video\vvertex.h" />
+    <ClInclude Include="Source\Vibrant\Video\vvertexbuffer.h" />
+    <ClInclude Include="Source\Vibrant\Video\vvideo.h" />
+    <ClInclude Include="Source\Vibrant\Game\vitemspecification.h" />
+    <ClInclude Include="Source\Vibrant\Game\vunit.h" />
+    <ClInclude Include="Source\Vibrant\Game\vunitability.h" />
+    <ClInclude Include="Source\Vibrant\Game\vunitstat.h" />
+    <ClInclude Include="Source\Vibrant\Game\vunitstatcontrol.h" />
+    <ClInclude Include="Source\Vibrant\System\index.h" />
+    <ClInclude Include="Source\Vibrant\System\vapplication.h" />
+    <ClInclude Include="Source\Vibrant\System\vcodemodule.h" />
+    <ClInclude Include="Source\Vibrant\System\vconfig.h" />
+    <ClInclude Include="Source\Vibrant\System\vconvert.h" />
+    <ClInclude Include="Source\Vibrant\System\vdll.h" />
+    <ClInclude Include="Source\Vibrant\System\venginesystem.h" />
+    <ClInclude Include="Source\Vibrant\System\vexception.h" />
+    <ClInclude Include="Source\Vibrant\System\vfile.h" />
+    <ClInclude Include="Source\Vibrant\System\vlog.h" />
+    <ClInclude Include="Source\Vibrant\System\vprecompiled.h" />
+    <ClInclude Include="Source\Vibrant\System\vsystem.h" />
+    <ClInclude Include="Source\Vibrant\System\vsystemmanager.h" />
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowsapplication.h" />
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowsaudio.h" />
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowsclient.h" />
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowscodemodule.h" />
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowsconvert.h" />
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowsexception.h" />
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowsinput.h" />
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowsmutex.h" />
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowsserver.h" />
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowsthread.h" />
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowstime.h" />
+    <ClInclude Include="Source\Vibrant\System\Windows\vwindowsvideo.h" />
+    <ClInclude Include="Source\Vibrant\System\Generic\vgenericcodemodule.h" />
+    <ClInclude Include="Source\Vibrant\System\Generic\vgenericmutex.h" />
+    <ClInclude Include="Source\Vibrant\System\Generic\vgenericthread.h" />
+    <ClInclude Include="Source\Vibrant\System\Generic\vgenerictime.h" />
+    <ClInclude Include="Source\Vibrant\GUI\vgui.h" />
+    <ClInclude Include="Source\Vibrant\Network\vclient.h" />
+    <ClInclude Include="Source\Vibrant\Network\vnetworkendpoint.h" />
+    <ClInclude Include="Source\Vibrant\Network\vnetworklayer.h" />
+    <ClInclude Include="Source\Vibrant\Network\vnetworkstream.h" />
+    <ClInclude Include="Source\Vibrant\Network\vserver.h" />
+    <ClInclude Include="Source\Vibrant\Network\vsocket.h" />
+    <ClInclude Include="Source\Vibrant\Network\vsockettype.h" />
+    <ClInclude Include="Source\Vibrant\Animation\vanimatable.h" />
+    <ClInclude Include="Source\Vibrant\Animation\vanimation.h" />
+    <ClInclude Include="Source\Vibrant\Animation\vanimationdata.h" />
+    <ClInclude Include="Source\Vibrant\Animation\vanimationmodes.h" />
+    <ClInclude Include="Source\Vibrant\Animation\vanimationsession.h" />
+    <ClInclude Include="Source\Vibrant\Animation\vanimationtrack.h" />
+    <ClInclude Include="Source\Vibrant\Animation\vkeyframeanimationdata.h" />
+    <ClInclude Include="Source\Vibrant\Animation\vsimpleanimationdata.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\Vibrant\Core\Stream\vgf_export_script.py" />
+    <None Include="Source\Vibrant\Core\Interaction\vevent.inl" />
+    <None Include="Source\Vibrant\Core\Interaction\veventsystem.inl" />
+    <None Include="Source\Vibrant\Core\Thread\vmutexlock.inl" />
+    <None Include="Source\Vibrant\Core\Thread\vthread.inl" />
+    <None Include="Source\Vibrant\Network\vnetworklayer.inl" />
+    <None Include="Source\Vibrant\Animation\vanimationdata.inl" />
+    <None Include="Source\Vibrant\Animation\vanimationtrack.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

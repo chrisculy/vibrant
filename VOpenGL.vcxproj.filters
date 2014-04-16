@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Video">
+      <UniqueIdentifier>{0a7f7a68-ce05-4cbb-a483-57f0f6056975}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{7d49e9ef-aa72-460d-9b88-9911efc1ed93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Windows">
+      <UniqueIdentifier>{f043bdc3-0630-4083-8b14-8b1935a473fa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\VOpenGL\Video\vglrenderer.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\VOpenGL\System\vprecompiled_opengl.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\VOpenGL\System\Windows\vglwindowsvideo.cpp">
+      <Filter>System\Windows</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\VOpenGL\Video\vglrenderer.h">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\VOpenGL\System\vprecompiled_opengl.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\VOpenGL\System\Windows\vglwindowsvideo.h">
+      <Filter>System\Windows</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
